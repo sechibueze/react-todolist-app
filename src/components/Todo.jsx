@@ -21,7 +21,9 @@ class Todo extends Component {
         </span>
 
         {/* Todo delete */}
-        <span className='fa fa-close todo-delete'></span>
+        <span className='fa fa-close todo-delete'
+          onClick={this.props.handleDelete}
+        ></span>
 
       </div>
     );

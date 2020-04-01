@@ -1,18 +1,21 @@
-
-
+body{
+  font-family:  Helvetica, sans-serif;
+  letter-spacing: 1px;
+  /* background-color: cornflowerblue; */
+  /* background-image: url('./img/todolist-app-270x180.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;*/
+  /* opacity: 0.5;  */
+}
 a{
   text-decoration: none;
 }
-.navbar{
-  color: #fff;
-}
-.navbar-toggler-icon{
-  color: #fff;
-}
+
 
 .todolist{
   width: 55%;
-  margin: auto;
+  margin: 15px auto;
   display: block;
   border-radius: 12px;
   box-shadow: 0px 0px 3px #0e84ff;
@@ -26,8 +29,8 @@ a{
   border-bottom: 1px solid #ddd;
 }
 .todo:hover{
-  background-color: darkgray;
-  color: #313;
+  background-color: #17a2b8;
+  color: #fff;
 }
 
 .todo-status{
@@ -52,4 +55,35 @@ a{
   content: '';
   display: block;
   clear: both;
+}
+
+.stats-board{
+  margin: 20px auto;
+  text-align: center;
+}
+
+.todo-stats{
+  margin: auto;
+  display: inline-block;
+  margin-right: 12px;
+}
+.todo-stats:first-of-type{
+  border-right: 1px solid #0e84ff;
+  padding-right: 15px;
+}
+.footer-content{
+  margin: auto;
+  line-height: 2.5;
+  text-align: center;
+
+}
+.dev{
+  width: 30px;
+  height: 30px;
+  border-radius: 45%;
+  box-shadow: 0px 0px 4px #ddd;
+}
+.dev, .footer-text-wrapper{
+  display: inline-block;
+  text-align: center;
 }

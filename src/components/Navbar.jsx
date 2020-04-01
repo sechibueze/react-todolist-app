@@ -4,17 +4,17 @@ class Navbar extends Component {
   state = {}
   render() {
     return (
-      <nav className='navbar navbar-expand-lg navbar-light bg-dark'>
+      <nav className='navbar navbar-expand-lg navbar-dark bg-dark'>
         <div className='container'>
           <div className='navbar-brand'>
-            <span className='display-5'><a href='/'>TodoList</a></span>
+            <h1 className='display-5'><a href='/'>TodoList</a></h1>
           </div>
           <div className='navbar-toggler' data-toggle='collapse' data-target='#navlinks'>
             <div className='navbar-toggler-icon'></div>
           </div>
           <div className='collapse navbar-collapse navbar-right' id='navlinks'>
             <ul className='navbar-nav' >
-              <li className='nav-item'> <a href='https://github.com/sechibueze/react-todolist-app' className='nav-link badge badge-light ml-3'><span className='fa fa-github mr-2'></span>Github</a> </li>
+              <li className='nav-item'> <a href='https://github.com/sechibueze/react-todolist-app' className='nav-link badge badge-info ml-3 p-1'><span className='fa fa-github mr-2'></span>Github</a> </li>
             </ul>
           </div>
         </div>

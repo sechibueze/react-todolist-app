@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { v4 as uuid } from 'uuid';
 import Todo from './components/Todo';
+import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 
@@ -46,20 +47,39 @@ class App extends Component {
     });
 
     this.setState({ todos: updTodo });
+  }
 
-
+  handleDelete = id => {
+    this.setState({
+      todos: this.state.todos.filter(todo => todo.id !== id)
+    });
   }
   render() {
-
     const { todos } = this.state;
-    const TodoList = todos.map(todo => <Todo key={`todo-${todo.id}-item`} todo={todo} handleCompleted={() => this.handleCompleted(todo.id)} />);
+    const total = todos.length;
+    const completed = todos.filter(t => t.isCompleted === true).length
+    const TodoList = todos.length === 0 ? <h3 className='well well-warning p-2'>No Todo, Add one</h3> : todos.map(todo =>
+      <Todo
+        key={`todo-${todo.id}-item`}
+        todo={todo}
+        handleCompleted={() => this.handleCompleted(todo.id)}
+        handleDelete={() => this.handleDelete(todo.id)}
+      />);
     return (
       <div className='app'>
         <Navbar />
-
-        <div className='list-group todolist'>
+        <div className='stats-board'>
+          <div className='todo-stats'>
+            COMPLETED<span className='badge badge-primary ml-3'>{completed}</span>
+          </div>
+          <div className='todo-stats'>
+            TOTAL<span className='badge badge-info ml-3'>{total}</span>
+          </div>
+        </div>
+        <div className='todolist'>
           {TodoList}
         </div>
+        <Footer />
       </div>
     );
   }
