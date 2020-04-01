@@ -1,0 +1,55 @@
+
+
+a{
+  text-decoration: none;
+}
+.navbar{
+  color: #fff;
+}
+.navbar-toggler-icon{
+  color: #fff;
+}
+
+.todolist{
+  width: 55%;
+  margin: auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0px 0px 3px #0e84ff;
+}
+
+.todo{
+  display: block;
+  line-height: 1.8;
+  text-align: left;
+  padding: 15px 24px;
+  border-bottom: 1px solid #ddd;
+}
+.todo:hover{
+  background-color: darkgray;
+  color: #313;
+}
+
+.todo-status{
+  text-align: left;
+  display: inline;
+  padding: 8px 10px;
+  margin-right: 12px;
+}
+.completed{
+  text-decoration: line-through;
+}
+.todo-title{
+  display: inline;
+  font-size: 1.2em;
+}
+
+.todo-delete{
+  text-align: right;
+  float: right;
+}
+.todo-delete::after{
+  content: '';
+  display: block;
+  clear: both;
+}
