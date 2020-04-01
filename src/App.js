@@ -9,6 +9,7 @@ import Navbar from './components/Navbar';
 
 class App extends Component {
   state = {
+    newTodo: '',
     todos: [
       {
         id: uuid(),
@@ -49,6 +50,28 @@ class App extends Component {
     this.setState({ todos: updTodo });
   }
 
+  handleTodo = e => {
+    e.preventDefault();
+    const title = this.state.newTodo;
+
+    if (!title || title.trim().length === 0) {
+      return;
+    }
+    const newTodo = {
+      id: uuid(),
+      title,
+      isCompleted: false
+    }
+    this.setState({
+      ...this.state,
+      todos: [newTodo, ...this.state.todos]
+    })
+  }
+  handleChange = e => {
+    const { name, value } = e.target;
+    this.setState({ [name]: value })
+  }
+
   handleDelete = id => {
     this.setState({
       todos: this.state.todos.filter(todo => todo.id !== id)
@@ -68,6 +91,12 @@ class App extends Component {
     return (
       <div className='app'>
         <Navbar />
+        <form onSubmit={this.handleTodo} className='m-1 p-2'>
+          <div className='form-group' style={{ width: '75%', margin: 'auto' }}>
+            <label htmlFor='newtodo'>Add new todo</label>
+            <input type='text' className='form-control' name='newTodo' onChange={this.handleChange} />
+          </div>
+        </form>
         <div className='stats-board'>
           <div className='todo-stats'>
             COMPLETED<span className='badge badge-primary ml-3'>{completed}</span>
@@ -80,7 +109,7 @@ class App extends Component {
           {TodoList}
         </div>
         <Footer />
-      </div>
+      </div >
     );
   }
 }
