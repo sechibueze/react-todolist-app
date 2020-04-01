@@ -11,6 +11,7 @@ class Todo extends Component {
           className='todo-status'
           type='checkbox'
           checked={todo.isCompleted}
+          onChange={this.props.handleCompleted}
         />
         {/* Todo title */}
         <span

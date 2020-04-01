@@ -36,9 +36,23 @@ class App extends Component {
       }
     ]
   }
-  render() {
+  handleCompleted = (id) => {
     const { todos } = this.state;
-    const TodoList = todos.map(todo => <Todo todo={todo} />);
+    const updTodo = todos.map(todo => {
+      if (todo.id === id) {
+        todo.isCompleted = !todo.isCompleted
+      }
+      return todo;
+    });
+
+    this.setState({ todos: updTodo });
+
+
+  }
+  render() {
+
+    const { todos } = this.state;
+    const TodoList = todos.map(todo => <Todo key={`todo-${todo.id}-item`} todo={todo} handleCompleted={() => this.handleCompleted(todo.id)} />);
     return (
       <div className='app'>
         <Navbar />
